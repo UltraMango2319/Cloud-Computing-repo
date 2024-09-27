@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perros Watones</title>
+    <style>
+      .carousel {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .carousel-image {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .carousel-image.active {
+        opacity: 1;
+      }
+
+      .carousel-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      body {
+        background-color: #babd8d;
+      }
+      h2,
+      h1 {
+        color: black;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      }
+      a {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido al top 10 de perros watones</h1>
+    </header>
+    <nav>
+      <a href="./perrogaleria.html">Conocer a los finalistas</a>
+      <a href="./ganador.html">Ver ganador</a>
+    </nav>
+    <article>
+      <section>
+        <h2>Presentando a los finalistas</h2>
+        <div class="carousel">
+          <div class="carousel-image active">
+            <img src="./img/perro1.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro2.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro3.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro4.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro5.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro6.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro7.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro8.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro9.jpg" />
+          </div>
+          <div class="carousel-image">
+            <img src="./img/perro10.jpg" />
+          </div>
+        </div>
+      </section>
+    </article>
+    <script>
+      let currentIndex = 0;
+      const perros = document.querySelectorAll(".carousel-image");
+
+      function showImage(index) {
+        perros.forEach((image, i) => {
+          image.classList.toggle("active", i === index);
+        });
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % perros.length;
+        showImage(currentIndex);
+      }
+
+      setInterval(nextImage, 1500);
+    </script>
+  </body>
+</html>
